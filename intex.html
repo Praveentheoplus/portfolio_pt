@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Praveen T — Full-Stack &amp; Android Developer</title>
+<link rel="icon" type="image/x-icon" href="favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -79,8 +80,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;padding:14px var(--px) 0}
 .hero-photo-stage{position:relative;width:min(300px,100%);aspect-ratio:3/3.75;animation:float 6s ease-in-out infinite}
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
 .hero-photo{width:100%;height:100%;border-radius:180px 180px 20px 20px;overflow:hidden;position:relative;background:radial-gradient(circle at 30% 25%,#232427,#0c0c0d 70%);border:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center}
-.hero-photo::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(224,20,26,.10) 1px,transparent 1px),linear-gradient(90deg,rgba(224,20,26,.10) 1px,transparent 1px);background-size:22px 22px;mask-image:radial-gradient(circle at 50% 40%,#000 55%,transparent 80%)}
+.hero-photo::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(224,20,26,.10) 1px,transparent 1px),linear-gradient(90deg,rgba(224,20,26,.10) 1px,transparent 1px);background-size:22px 22px;mask-image:radial-gradient(circle at 50% 40%,#000 55%,transparent 80%);pointer-events:none}
 .hero-photo::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(255,255,255,.025) 0 1px,transparent 1px 3px);pointer-events:none}
+.hero-photo img{position:relative;z-index:1;width:100%;height:100%;object-fit:cover;object-position:center 20%}
 .avatar-mark{position:relative;z-index:1;font-family:var(--display);font-size:5.4rem;color:#fff;letter-spacing:.01em;text-shadow:0 0 40px rgba(224,20,26,.35)}
 .avatar-mark .accent{color:var(--red)}
 .avatar-ring{position:absolute;border:1px solid rgba(224,20,26,.3);border-radius:50%;z-index:0}
@@ -324,16 +326,14 @@ footer span{color:var(--red)}
       <div class="btn-row">
         <a data-scroll="contact" role="link" tabindex="0" class="btn btn-red">Book a Call ✈</a>
         <a data-scroll="projects" role="link" tabindex="0" class="btn btn-outline">View Projects ↗</a>
-        <a href="https://github.com/Praveentheoplus/praveen-portfolio/blob/main/praveen-resume.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">Download CV ⬇</a>
+        <a href="resume.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">Download CV ⬇</a>
       </div>
     </div>
 
     <div class="hero-photo-wrap">
       <div class="hero-photo-stage">
         <div class="hero-photo">
-          <div class="avatar-ring ar2"></div>
-          <div class="avatar-ring ar1"></div>
-          <div class="avatar-mark">P<span class="accent">T</span></div>
+          <img src="profile.jpeg" alt="Praveen T">
         </div>
         <svg class="callout-svg" viewBox="0 0 300 375" preserveAspectRatio="none">
           <path d="M 235 55 L 300 55 L 335 40" vector-effect="non-scaling-stroke"/>
@@ -803,7 +803,7 @@ footer span{color:var(--red)}
 </section>
 
 <footer>
-  <div>© 2025 Praveen T — All rights reserved</div>
+  <div>© 2026 Praveen T — All rights reserved</div>
   <div>Built with <span>♥</span> by Praveen T</div>
 </footer>
 
