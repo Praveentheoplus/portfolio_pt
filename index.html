@@ -82,7 +82,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;padding:14px var(--px) 0}
 .hero-photo{width:100%;height:100%;border-radius:180px 180px 20px 20px;overflow:hidden;position:relative;z-index:1;background:radial-gradient(circle at 30% 25%,#232427,#0c0c0d 70%);border:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center}
 .hero-photo::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(224,20,26,.10) 1px,transparent 1px),linear-gradient(90deg,rgba(224,20,26,.10) 1px,transparent 1px);background-size:22px 22px;mask-image:radial-gradient(circle at 50% 40%,#000 55%,transparent 80%);pointer-events:none}
 .hero-photo::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(255,255,255,.025) 0 1px,transparent 1px 3px);pointer-events:none}
-.hero-photo img{position:relative;z-index:1;width:100%;height:100%;object-fit:cover;object-position:center 20%}
+.hero-photo img{position:relative;z-index:1;width:100%;height:100%;object-fit:cover;object-position:center 20%;transform:scale(1.15);transform-origin:center 20%}
 .avatar-mark{position:relative;z-index:1;font-family:var(--display);font-size:5.4rem;color:#fff;letter-spacing:.01em;text-shadow:0 0 40px rgba(224,20,26,.35)}
 .avatar-mark .accent{color:var(--red)}
 .avatar-ring{position:absolute;border:1px solid rgba(224,20,26,.3);border-radius:50%;z-index:0}
