@@ -246,8 +246,11 @@ section{padding:clamp(3.5rem,8vw,5.5rem) var(--px);scroll-margin-top:var(--nav-o
 .contact-card-label{font-family:var(--mono);font-size:.72rem;letter-spacing:.03em;color:#fff}
 .contact-card .ci{width:19px;height:19px;color:var(--red);flex-shrink:0}
 
-footer{background:var(--black);padding:1.8rem var(--px);color:#8a8f97;font-family:var(--mono);font-size:.68rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem;border-top:1px solid rgba(255,255,255,.06)}
+footer{background:var(--black);padding:1.8rem var(--px);color:#8a8f97;font-family:var(--mono);font-size:.68rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem;border-top:1px solid rgba(255,255,255,.06);align-items:center}
 footer span{color:var(--red)}
+.view-counter{display:flex;align-items:center;gap:.4rem;font-family:var(--mono);font-size:.68rem;color:#8a8f97;background:var(--panel);border:1px solid rgba(255,255,255,.1);border-radius:100px;padding:.35rem .9rem}
+.view-counter svg{width:13px;height:13px;color:var(--red);flex-shrink:0}
+.view-counter b{color:#d6d9de;font-weight:600}
 
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
 .reveal.visible{opacity:1;transform:none}
@@ -280,6 +283,7 @@ footer span{color:var(--red)}
   .mini-grid{grid-template-columns:1fr}
   .certs-grid{grid-template-columns:1fr}
   .case-results{grid-template-columns:1fr}
+  footer{flex-direction:column;align-items:flex-start}
 }
 </style>
 </head>
@@ -804,6 +808,10 @@ footer span{color:var(--red)}
 
 <footer>
   <div>© 2026 Praveen T — All rights reserved</div>
+  <div class="view-counter" id="viewCounter" title="Total portfolio views">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg>
+    <b id="viewCount">···</b> views
+  </div>
   <div>Built with <span>♥</span> by Praveen T</div>
 </footer>
 
@@ -871,7 +879,20 @@ if(cfForm){
   });
 }
 
-
+// portfolio view counter — free, no-signup CountAPI counter
+// namespace + key act like a "table.row" for the count. Change the namespace
+// if you ever want to reset the counter to zero.
+(async()=>{
+  const countEl=document.getElementById('viewCount');
+  try{
+    const res=await fetch('https://api.countapi.xyz/hit/praveentheoplus-portfolio/views');
+    if(!res.ok) throw new Error('bad response');
+    const data=await res.json();
+    countEl.textContent=data.value.toLocaleString();
+  }catch(err){
+    countEl.textContent='—';
+  }
+})();
 </script>
 </body>
 </html>
