@@ -5,6 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Praveen T — Full-Stack &amp; Android Developer</title>
 <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+<!-- SEO -->
+<meta name="description" content="Portfolio of Praveen T, a Full-Stack and Android developer building with React, Node.js, and Kotlin. Open to full-time Software Engineer roles.">
+
+<!-- Open Graph / LinkedIn / WhatsApp / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://portfolio-pt-alpha.vercel.app/">
+<meta property="og:title" content="Praveen T — Full-Stack & Android Developer">
+<meta property="og:description" content="IT student who builds the same product twice — once for the browser, once for the pocket. React, Node.js, Kotlin, and DevOps.">
+<meta property="og:image" content="https://portfolio-pt-alpha.vercel.app/profile.jpeg">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://portfolio-pt-alpha.vercel.app/">
+<meta name="twitter:title" content="Praveen T — Full-Stack & Android Developer">
+<meta name="twitter:description" content="IT student who builds the same product twice — once for the browser, once for the pocket. React, Node.js, Kotlin, and DevOps.">
+<meta name="twitter:image" content="https://portfolio-pt-alpha.vercel.app/profile.jpeg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -879,13 +896,14 @@ if(cfForm){
   });
 }
 
-// portfolio view counter — free, no-signup CountAPI counter
-// namespace + key act like a "table.row" for the count. Change the namespace
-// if you ever want to reset the counter to zero.
+// portfolio view counter — free, no-signup counter (countapi.xyz is dead,
+// this uses a maintained drop-in replacement with the same API shape).
+// Key acts like a unique row name for the count. Change it if you ever
+// want to reset the counter to zero.
 (async()=>{
   const countEl=document.getElementById('viewCount');
   try{
-    const res=await fetch('https://api.countapi.xyz/hit/praveentheoplus-portfolio/views');
+    const res=await fetch('https://countapi.mileshilliard.com/api/v1/hit/praveentheoplus-portfolio-views');
     if(!res.ok) throw new Error('bad response');
     const data=await res.json();
     countEl.textContent=data.value.toLocaleString();
