@@ -202,6 +202,12 @@ section{padding:clamp(3.5rem,8vw,5.5rem) var(--px);scroll-margin-top:var(--nav-o
 .case-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1rem}
 .case-tag{font-family:var(--mono);font-size:.6rem;letter-spacing:.03em;padding:.22rem .6rem;background:var(--light);border:1px solid var(--light2);border-radius:4px;color:var(--ink-muted)}
 
+/* ---- project screenshots ---- */
+.case-shot{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center;z-index:0;display:block}
+.case-visual.has-shot::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(10,10,10,.96) 0%,rgba(10,10,10,.75) 20%,rgba(10,10,10,.3) 42%,transparent 62%);z-index:1;pointer-events:none}
+.case-visual.has-shot .case-topbar{z-index:3}
+.case-visual.has-shot .case-kicker,.case-visual.has-shot .case-name{position:relative;z-index:2}
+
 .mini-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1.5rem}
 .mini-card{border:1px solid var(--light2);background:var(--white);border-radius:10px;padding:1.4rem;transition:.25s}
 .mini-card:hover{border-color:var(--red);transform:translateY(-3px)}
@@ -479,7 +485,8 @@ footer span{color:var(--red)}
     <div class="sec-title">What I've Built</div>
 
     <div class="case reveal">
-      <div class="case-visual">
+      <div class="case-visual has-shot">
+        <img class="case-shot" src="screenshots/attendance-dashboard.webp" alt="Attendance Management System dashboard showing total students, sessions and periods per day" loading="lazy">
         <div class="case-topbar"><div class="case-dots"><span></span><span></span><span></span></div><div class="case-url">attendance-management-iota-green.vercel.app</div></div>
         <div class="case-kicker">Full-Stack · Featured</div>
         <div class="case-name">Attendance<br>System</div>
@@ -506,7 +513,8 @@ footer span{color:var(--red)}
     </div>
 
     <div class="case reveal">
-      <div class="case-visual">
+      <div class="case-visual has-shot">
+        <img class="case-shot" src="screenshots/hunarhub-home.webp" alt="HunarHub homepage showing the craft categories and hero section" loading="lazy">
         <div class="case-topbar"><div class="case-dots"><span></span><span></span><span></span></div><div class="case-url">hunarhub-frontend-six.vercel.app</div></div>
         <div class="case-kicker">Full-Stack · Marketplace</div>
         <div class="case-name">Hunar<br>Hub</div>
@@ -533,7 +541,8 @@ footer span{color:var(--red)}
     </div>
 
     <div class="case reveal">
-      <div class="case-visual">
+      <div class="case-visual has-shot">
+        <img class="case-shot" src="screenshots/devdeploy-agent-console.webp" alt="DevDeploy Agent console showing the deployment agent log and successful deployment" loading="lazy">
         <div class="case-topbar"><div class="case-dots"><span></span><span></span><span></span></div><div class="case-url">devdeploy-agent.vercel.app</div></div>
         <div class="case-kicker">AI Agent · Hackathon</div>
         <div class="case-name">DevDeploy<br>Agent</div>
@@ -559,7 +568,8 @@ footer span{color:var(--red)}
     </div>
 
     <div class="case reveal">
-      <div class="case-visual">
+      <div class="case-visual has-shot">
+        <img class="case-shot" src="screenshots/deploykar-home.webp" alt="Deploykar homepage showing the deploy terminal and live deployment status" loading="lazy">
         <div class="case-topbar"><div class="case-dots"><span></span><span></span><span></span></div><div class="case-url">deploykar.vercel.app</div></div>
         <div class="case-kicker">Full-Stack · PaaS</div>
         <div class="case-name">Deploy<br>kar</div>
@@ -583,7 +593,8 @@ footer span{color:var(--red)}
     </div>
 
     <div class="case reveal">
-      <div class="case-visual">
+      <div class="case-visual has-shot">
+        <img class="case-shot" src="screenshots/finance-tracker-dashboard.webp" alt="Finance Tracker dashboard showing total balance, income and expenses" loading="lazy">
         <div class="case-topbar"><div class="case-dots"><span></span><span></span><span></span></div><div class="case-url">finance-tracker-vf95.onrender.com</div></div>
         <div class="case-kicker">Full-Stack · Finance</div>
         <div class="case-name">Finance<br>Tracker</div>
@@ -607,7 +618,8 @@ footer span{color:var(--red)}
     </div>
 
     <div class="case reveal">
-      <div class="case-visual">
+      <div class="case-visual has-shot">
+        <img class="case-shot" src="screenshots/cloud-storage-dashboard.webp" alt="Cloud Storage dashboard showing file count, storage used and the upload area" loading="lazy">
         <div class="case-topbar"><div class="case-dots"><span></span><span></span><span></span></div><div class="case-url">cloud-storage-app-production.up.railway.app</div></div>
         <div class="case-kicker">Full-Stack · Cloud</div>
         <div class="case-name">Cloud<br>Storage</div>
