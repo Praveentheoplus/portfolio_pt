@@ -162,7 +162,7 @@ section{padding:clamp(3.5rem,8vw,5.5rem) var(--px);scroll-margin-top:var(--nav-o
 #skills .sec-label{color:var(--red)}
 #skills .sec-title{color:#fff}
 .skills-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
-.skill-card{background:var(--panel);border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:1.5rem;transition:.25s;position:relative;will-change:transform}
+.skill-card{background:var(--panel);border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:1.5rem;transition:.25s}
 .skill-card:hover{border-color:rgba(224,20,26,.4);transform:translateY(-4px)}
 .skill-cat{font-family:var(--display);text-transform:uppercase;font-size:1.1rem;color:#fff;margin-bottom:1rem;padding-bottom:.8rem;border-bottom:1px solid rgba(255,255,255,.08)}
 .skill-cat .accent{color:var(--red)}
@@ -175,15 +175,7 @@ section{padding:clamp(3.5rem,8vw,5.5rem) var(--px);scroll-margin-top:var(--nav-o
 
 /* ---------- PROJECTS ---------- */
 #projects{background:var(--light)}
-.case{display:grid;grid-template-columns:1fr 1.05fr;border:1px solid var(--light2);border-radius:12px;overflow:hidden;margin-bottom:1.25rem;background:var(--white);position:relative;transform-style:preserve-3d;will-change:transform}
-.case::after,.cert-card::after,.skill-card::after{content:'';position:absolute;inset:0;border-radius:inherit;background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgba(255,255,255,.12),transparent 60%);opacity:0;transition:opacity .35s ease;pointer-events:none}
-.case.tilting::after,.cert-card.tilting::after,.skill-card.tilting::after{opacity:1}
-.case,.cert-card,.skill-card{transition:transform .15s ease-out,box-shadow .15s ease-out}
-.case.tilting,.cert-card.tilting,.skill-card.tilting{box-shadow:0 20px 40px -12px rgba(0,0,0,.35)}
-@media (prefers-reduced-motion:reduce),(hover:none){
-  .case,.cert-card,.skill-card{transform:none!important}
-  .case::after,.cert-card::after,.skill-card::after{display:none}
-}
+.case{display:grid;grid-template-columns:1fr 1.05fr;border:1px solid var(--light2);border-radius:12px;overflow:hidden;margin-bottom:1.25rem;background:var(--white)}
 .case-visual{background:var(--black);position:relative;padding:clamp(1.4rem,3vw,2rem) clamp(1.2rem,2.6vw,1.8rem);display:flex;flex-direction:column;justify-content:flex-end;min-height:300px;overflow:hidden}
 .case-visual::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 30% 20%,rgba(224,20,26,.18),transparent 60%)}
 .case-topbar{display:flex;align-items:center;gap:.6rem;position:absolute;top:1.4rem;left:1.6rem;right:1.6rem;z-index:1}
@@ -242,7 +234,7 @@ section{padding:clamp(3.5rem,8vw,5.5rem) var(--px);scroll-margin-top:var(--nav-o
 #certs .sec-label{color:var(--red)}
 #certs .sec-title{color:#fff}
 .certs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
-.cert-card{background:var(--panel);border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:1.5rem;transition:.25s;position:relative;will-change:transform}
+.cert-card{background:var(--panel);border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:1.5rem;transition:.25s}
 .cert-card:hover{border-color:rgba(224,20,26,.4);transform:translateY(-3px)}
 .cert-badge{font-family:var(--mono);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--green);background:rgba(74,222,128,.08);border:1px solid rgba(74,222,128,.25);border-radius:100px;padding:.2rem .6rem;display:inline-block;margin-bottom:.9rem}
 .cert-title{font-family:var(--body);font-weight:800;color:#fff;font-size:.95rem;margin-bottom:.4rem;line-height:1.4}
@@ -1000,34 +992,6 @@ const statObs=new IntersectionObserver(es=>{es.forEach(e=>{
   statObs.unobserve(el);
 });},{threshold:.5});
 statEls.forEach(el=>statObs.observe(el));
-
-// 3D mouse-follow tilt on case/cert/skill cards
-(function(){
-  const supportsHover=window.matchMedia('(hover:hover) and (pointer:fine)').matches;
-  const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if(!supportsHover||reduceMotion)return;
-
-  const maxTilt=7; // degrees
-  const cards=document.querySelectorAll('.case, .cert-card, .skill-card');
-
-  cards.forEach(card=>{
-    card.addEventListener('mousemove',e=>{
-      const rect=card.getBoundingClientRect();
-      const x=(e.clientX-rect.left)/rect.width;
-      const y=(e.clientY-rect.top)/rect.height;
-      const rotY=(x-0.5)*maxTilt*2;
-      const rotX=-(y-0.5)*maxTilt*2;
-      card.style.transform=`perspective(900px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale3d(1.015,1.015,1.015)`;
-      card.style.setProperty('--mx',(x*100)+'%');
-      card.style.setProperty('--my',(y*100)+'%');
-      card.classList.add('tilting');
-    });
-    card.addEventListener('mouseleave',()=>{
-      card.style.transform='';
-      card.classList.remove('tilting');
-    });
-  });
-})();
 
 // active nav link
 const links=document.querySelectorAll('.nav-links a');
