@@ -162,7 +162,7 @@ section{padding:clamp(3.5rem,8vw,5.5rem) var(--px);scroll-margin-top:var(--nav-o
 #skills .sec-label{color:var(--red)}
 #skills .sec-title{color:#fff}
 .skills-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
-.skill-card{background:var(--panel);border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:1.5rem;transition:.25s}
+.skill-card{background:var(--panel);border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:1.5rem;transition:.25s;position:relative;will-change:transform}
 .skill-card:hover{border-color:rgba(224,20,26,.4);transform:translateY(-4px)}
 .skill-cat{font-family:var(--display);text-transform:uppercase;font-size:1.1rem;color:#fff;margin-bottom:1rem;padding-bottom:.8rem;border-bottom:1px solid rgba(255,255,255,.08)}
 .skill-cat .accent{color:var(--red)}
@@ -175,7 +175,15 @@ section{padding:clamp(3.5rem,8vw,5.5rem) var(--px);scroll-margin-top:var(--nav-o
 
 /* ---------- PROJECTS ---------- */
 #projects{background:var(--light)}
-.case{display:grid;grid-template-columns:1fr 1.05fr;border:1px solid var(--light2);border-radius:12px;overflow:hidden;margin-bottom:1.25rem;background:var(--white)}
+.case{display:grid;grid-template-columns:1fr 1.05fr;border:1px solid var(--light2);border-radius:12px;overflow:hidden;margin-bottom:1.25rem;background:var(--white);position:relative;transform-style:preserve-3d;will-change:transform}
+.case::after,.cert-card::after,.skill-card::after{content:'';position:absolute;inset:0;border-radius:inherit;background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgba(255,255,255,.12),transparent 60%);opacity:0;transition:opacity .35s ease;pointer-events:none}
+.case.tilting::after,.cert-card.tilting::after,.skill-card.tilting::after{opacity:1}
+.case,.cert-card,.skill-card{transition:transform .15s ease-out,box-shadow .15s ease-out}
+.case.tilting,.cert-card.tilting,.skill-card.tilting{box-shadow:0 20px 40px -12px rgba(0,0,0,.35)}
+@media (prefers-reduced-motion:reduce),(hover:none){
+  .case,.cert-card,.skill-card{transform:none!important}
+  .case::after,.cert-card::after,.skill-card::after{display:none}
+}
 .case-visual{background:var(--black);position:relative;padding:clamp(1.4rem,3vw,2rem) clamp(1.2rem,2.6vw,1.8rem);display:flex;flex-direction:column;justify-content:flex-end;min-height:300px;overflow:hidden}
 .case-visual::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 30% 20%,rgba(224,20,26,.18),transparent 60%)}
 .case-topbar{display:flex;align-items:center;gap:.6rem;position:absolute;top:1.4rem;left:1.6rem;right:1.6rem;z-index:1}
@@ -200,7 +208,18 @@ section{padding:clamp(3.5rem,8vw,5.5rem) var(--px);scroll-margin-top:var(--nav-o
 .case-btn.outline{background:transparent;border:1px solid var(--light2);color:var(--ink)}
 .case-btn.outline:hover{border-color:var(--ink);background:transparent;color:var(--ink)}
 .case-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1rem}
-.case-tag{font-family:var(--mono);font-size:.6rem;letter-spacing:.03em;padding:.22rem .6rem;background:var(--light);border:1px solid var(--light2);border-radius:4px;color:var(--ink-muted)}
+.case-tag{font-family:var(--mono);font-size:.6rem;letter-spacing:.03em;padding:.22rem .6rem;background:var(--light);border:1px solid var(--light2);border-radius:4px;color:var(--ink-muted);opacity:0;transform:translateY(8px) scale(.92);transition:opacity .4s ease,transform .4s ease}
+.case.visible .case-tag{opacity:1;transform:none}
+.case.visible .case-tag:nth-child(1){transition-delay:.25s}
+.case.visible .case-tag:nth-child(2){transition-delay:.33s}
+.case.visible .case-tag:nth-child(3){transition-delay:.41s}
+.case.visible .case-tag:nth-child(4){transition-delay:.49s}
+.case.visible .case-tag:nth-child(5){transition-delay:.57s}
+.case.visible .case-tag:nth-child(6){transition-delay:.65s}
+.case.visible .case-tag:nth-child(7){transition-delay:.73s}
+@media (prefers-reduced-motion:reduce){
+  .case-tag{opacity:1!important;transform:none!important;transition:none!important}
+}
 
 /* ---- project screenshots ---- */
 .case-shot{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center;z-index:0;display:block}
@@ -223,7 +242,7 @@ section{padding:clamp(3.5rem,8vw,5.5rem) var(--px);scroll-margin-top:var(--nav-o
 #certs .sec-label{color:var(--red)}
 #certs .sec-title{color:#fff}
 .certs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
-.cert-card{background:var(--panel);border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:1.5rem;transition:.25s}
+.cert-card{background:var(--panel);border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:1.5rem;transition:.25s;position:relative;will-change:transform}
 .cert-card:hover{border-color:rgba(224,20,26,.4);transform:translateY(-3px)}
 .cert-badge{font-family:var(--mono);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--green);background:rgba(74,222,128,.08);border:1px solid rgba(74,222,128,.25);border-radius:100px;padding:.2rem .6rem;display:inline-block;margin-bottom:.9rem}
 .cert-title{font-family:var(--body);font-weight:800;color:#fff;font-size:.95rem;margin-bottom:.4rem;line-height:1.4}
@@ -277,6 +296,22 @@ footer span{color:var(--red)}
 
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
 .reveal.visible{opacity:1;transform:none}
+.cert-card.reveal:nth-child(1){transition-delay:.03s}
+.cert-card.reveal:nth-child(2){transition-delay:.08s}
+.cert-card.reveal:nth-child(3){transition-delay:.13s}
+.cert-card.reveal:nth-child(4){transition-delay:.18s}
+.cert-card.reveal:nth-child(5){transition-delay:.23s}
+.cert-card.reveal:nth-child(6){transition-delay:.28s}
+.cert-card.reveal:nth-child(7){transition-delay:.33s}
+.cert-card.reveal:nth-child(8){transition-delay:.38s}
+.cert-card.reveal:nth-child(9){transition-delay:.43s}
+.skill-card.reveal:nth-child(1){transition-delay:.03s}
+.skill-card.reveal:nth-child(2){transition-delay:.1s}
+.skill-card.reveal:nth-child(3){transition-delay:.17s}
+.skill-card.reveal:nth-child(4){transition-delay:.24s}
+.skill-card.reveal:nth-child(5){transition-delay:.31s}
+.skill-card.reveal:nth-child(6){transition-delay:.38s}
+.owner-stats b{transition:color .3s ease}
 
 @media(prefers-reduced-motion:reduce){
   .reveal{opacity:1!important;transform:none!important;transition:none!important}
@@ -445,29 +480,29 @@ footer span{color:var(--red)}
     <div class="bleed-wrap"><div class="bleed-title">Stack</div></div>
     <div class="sec-label">What I Work With</div>
     <div class="sec-title" style="color:#fff">Technical Stack</div>
-    <div class="skills-grid reveal">
-      <div class="skill-card">
+    <div class="skills-grid">
+      <div class="skill-card reveal">
         <div class="skill-cat">Languages<span class="accent">.</span></div>
         <div class="skill-row"><span class="skill-name">JavaScript</span><div class="lang-icon" style="--lc:#f0db4f;--lct:#1a1a1a">JS</div></div>
         <div class="skill-row"><span class="skill-name">Kotlin</span><div class="lang-icon" style="--lc:#7f52ff;--lct:#fff">KT</div></div>
         <div class="skill-row"><span class="skill-name">Java</span><div class="lang-icon" style="--lc:#ea2d2e;--lct:#fff">JV</div></div>
         <div class="skill-row"><span class="skill-name">Python</span><div class="lang-icon" style="--lc:#3776ab;--lct:#fff">PY</div></div>
       </div>
-      <div class="skill-card">
+      <div class="skill-card reveal">
         <div class="skill-cat">Frontend<span class="accent">.</span></div>
         <div class="skill-row"><span class="skill-name">HTML5 / CSS3</span><div class="tech-icon" style="--lc:#e34f26;--lct:#fff">H5</div></div>
         <div class="skill-row"><span class="skill-name">React.js</span><div class="tech-icon" style="--lc:#61dafb;--lct:#0a0a0a">⚛</div></div>
         <div class="skill-row"><span class="skill-name">UI Design (XML)</span><div class="tech-icon" style="--lc:#3d3d3d;--lct:#fff">XML</div></div>
         <div class="skill-row"><span class="skill-name">Responsive Design</span><div class="tech-icon" style="--lc:var(--red);--lct:#fff">RWD</div></div>
       </div>
-      <div class="skill-card">
+      <div class="skill-card reveal">
         <div class="skill-cat">Backend<span class="accent">.</span></div>
         <div class="skill-row"><span class="skill-name">Node.js</span><div class="tech-icon" style="--lc:#339933;--lct:#fff">ND</div></div>
         <div class="skill-row"><span class="skill-name">Express.js</span><div class="tech-icon" style="--lc:#3d3d3d;--lct:#fff">EX</div></div>
         <div class="skill-row"><span class="skill-name">REST APIs</span><div class="tech-icon" style="--lc:var(--red);--lct:#fff">API</div></div>
         <div class="skill-row"><span class="skill-name">MongoDB / Firebase</span><div class="tech-icon" style="--lc:#47a248;--lct:#fff">DB</div></div>
       </div>
-      <div class="skill-card">
+      <div class="skill-card reveal">
         <div class="skill-cat">DevOps &amp; Tools<span class="accent">.</span></div>
         <div class="skill-row"><span class="skill-name">Git &amp; GitHub</span><div class="tech-icon" style="--lc:#f05033;--lct:#fff">GIT</div></div>
         <div class="skill-row"><span class="skill-name">Docker</span><div class="tech-icon" style="--lc:#2496ed;--lct:#fff">DKR</div></div>
@@ -767,22 +802,22 @@ footer span{color:var(--red)}
   <div class="inner">
     <div class="sec-label">Credentials</div>
     <div class="sec-title" style="color:#fff">Certifications &amp; Job Simulations</div>
-    <div class="certs-grid reveal">
-      <div class="cert-card">
+    <div class="certs-grid">
+      <div class="cert-card reveal">
         <div class="cert-badge">Verified</div>
         <div class="cert-title">Oracle Cloud Infrastructure 2025 Certified Foundations Associate</div>
         <div class="cert-issuer">Oracle University</div>
         <div class="cert-desc">Covers core cloud computing concepts, OCI services, security, compliance, and pricing models.</div>
         <div class="cert-footer"><span class="cert-id">Issued: <span>2025</span></span></div>
       </div>
-      <div class="cert-card">
+      <div class="cert-card reveal">
         <div class="cert-badge">Verified</div>
         <div class="cert-title">Generative AI in Action</div>
         <div class="cert-issuer">IBM SkillsBuild</div>
         <div class="cert-desc">Advanced-level credential covering generative AI principles, prompt engineering, foundation models, transformers, and AI ethics.</div>
         <div class="cert-footer"><span class="cert-id">ID: <span>PWID-B0916100</span></span><span class="cert-id">Issued: <span>Sep 2025</span></span></div>
       </div>
-      <div class="cert-card">
+      <div class="cert-card reveal">
         <div class="cert-badge">Verified</div>
         <div class="cert-title">Data Analytics Job Simulation</div>
         <div class="cert-issuer">Deloitte (via Forage)</div>
@@ -791,28 +826,28 @@ footer span{color:var(--red)}
           <a href="https://www.theforage.com/simulations/deloitte-au/data-analytics-s5zy/completed" target="_blank" rel="noopener noreferrer" class="cert-link">View ↗</a>
         </div>
       </div>
-      <div class="cert-card">
+      <div class="cert-card reveal">
         <div class="cert-badge">Verified</div>
         <div class="cert-title">GenAI Powered Data Analytics Job Simulation</div>
         <div class="cert-issuer">Tata (via Forage)</div>
         <div class="cert-desc">Covered exploratory data analysis, risk profiling, predicting delinquency with AI, and data storytelling for collections strategy.</div>
         <div class="cert-footer"><span class="cert-id">Code: <span>XdMhgxuiFaN4RG3k8</span></span></div>
       </div>
-      <div class="cert-card">
+      <div class="cert-card reveal">
         <div class="cert-badge">Verified</div>
         <div class="cert-title">MongoDB</div>
         <div class="cert-issuer">Unstop</div>
         <div class="cert-desc">Course covering NoSQL database design, document modeling, and database management fundamentals.</div>
         <div class="cert-footer"><span class="cert-id">Issuer: <span>Unstop</span></span></div>
       </div>
-      <div class="cert-card">
+      <div class="cert-card reveal">
         <div class="cert-badge">Verified</div>
         <div class="cert-title">MERN Full Stack</div>
         <div class="cert-issuer">Unstop</div>
         <div class="cert-desc">Comprehensive course covering MongoDB, Express.js, React.js, and Node.js — the complete full-stack JavaScript ecosystem.</div>
         <div class="cert-footer"><span class="cert-id">Issuer: <span>Unstop</span></span></div>
       </div>
-      <div class="cert-card">
+      <div class="cert-card reveal">
         <div class="cert-badge">Verified</div>
         <div class="cert-title">Claude Code in Action</div>
         <div class="cert-issuer">Anthropic Education</div>
@@ -821,7 +856,7 @@ footer span{color:var(--red)}
           <a href="https://verify.skilljar.com/c/9yqzj8txccxw" target="_blank" rel="noopener noreferrer" class="cert-link">View ↗</a>
         </div>
       </div>
-      <div class="cert-card">
+      <div class="cert-card reveal">
         <div class="cert-badge">Verified</div>
         <div class="cert-title">Gemini Certified Student</div>
         <div class="cert-issuer">Google</div>
@@ -830,7 +865,7 @@ footer span{color:var(--red)}
           <a href="https://edu.google.accredible.com/5818e594-b32a-44e4-8f43-ee4b35e1fc2a" target="_blank" rel="noopener noreferrer" class="cert-link">View ↗</a>
         </div>
       </div>
-      <div class="cert-card">
+      <div class="cert-card reveal">
         <div class="cert-badge">Verified</div>
         <div class="cert-title">Advanced Software Engineering Job Simulation</div>
         <div class="cert-issuer">Walmart USA (via Forage)</div>
@@ -942,6 +977,57 @@ document.querySelectorAll('[data-scroll]').forEach(a=>{
 // scroll reveal
 const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:.1,rootMargin:'0px 0px -50px 0px'});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+// count-up animation for hero stat numbers
+const statEls=document.querySelectorAll('.owner-stats b');
+const statObs=new IntersectionObserver(es=>{es.forEach(e=>{
+  if(!e.isIntersecting)return;
+  const el=e.target;
+  if(el.dataset.counted)return;
+  el.dataset.counted='1';
+  const raw=el.textContent.trim();
+  const suffix=raw.replace(/[0-9]/g,'');
+  const target=parseInt(raw,10)||0;
+  const dur=900;
+  const start=performance.now();
+  function tick(now){
+    const p=Math.min((now-start)/dur,1);
+    const eased=1-Math.pow(1-p,3);
+    el.textContent=Math.round(eased*target)+suffix;
+    if(p<1)requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+  statObs.unobserve(el);
+});},{threshold:.5});
+statEls.forEach(el=>statObs.observe(el));
+
+// 3D mouse-follow tilt on case/cert/skill cards
+(function(){
+  const supportsHover=window.matchMedia('(hover:hover) and (pointer:fine)').matches;
+  const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!supportsHover||reduceMotion)return;
+
+  const maxTilt=7; // degrees
+  const cards=document.querySelectorAll('.case, .cert-card, .skill-card');
+
+  cards.forEach(card=>{
+    card.addEventListener('mousemove',e=>{
+      const rect=card.getBoundingClientRect();
+      const x=(e.clientX-rect.left)/rect.width;
+      const y=(e.clientY-rect.top)/rect.height;
+      const rotY=(x-0.5)*maxTilt*2;
+      const rotX=-(y-0.5)*maxTilt*2;
+      card.style.transform=`perspective(900px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale3d(1.015,1.015,1.015)`;
+      card.style.setProperty('--mx',(x*100)+'%');
+      card.style.setProperty('--my',(y*100)+'%');
+      card.classList.add('tilting');
+    });
+    card.addEventListener('mouseleave',()=>{
+      card.style.transform='';
+      card.classList.remove('tilting');
+    });
+  });
+})();
 
 // active nav link
 const links=document.querySelectorAll('.nav-links a');
