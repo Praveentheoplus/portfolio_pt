@@ -90,14 +90,20 @@ a.shot:hover img{transform:scale(1.04)}
 .cert a{border-bottom:1px solid #000;font-size:15px}
 /* skills bento */
 .bento{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,1.1vw,20px)}
-.skill{background:var(--card);border-radius:clamp(22px,2vw,36px);padding:clamp(24px,2.4vw,44px)}
+.dark{background:#0b0b0b;color:#fff;padding:clamp(60px,6vw,110px) var(--pad) clamp(70px,7vw,130px)}
+.dark .head p{color:#bdbdbd}
+.skill{background:#1a1a1a;border-radius:clamp(22px,2vw,36px);padding:clamp(24px,2.4vw,44px)}
+.dark+.wrap{padding-top:clamp(70px,7vw,130px)}
+.logos{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:clamp(22px,2.2vw,36px)}
+.logos span{width:clamp(54px,4.6vw,84px);aspect-ratio:1;border-radius:50%;background:#f4f4f4;display:grid;place-items:center}
+.logos img{width:54%;height:54%;object-fit:contain}
 .skill h3{font-weight:500;font-size:clamp(22px,1.9vw,36px)}
-.skill p{font-family:'DM Sans',sans-serif;font-weight:300;color:var(--mut);font-size:clamp(14px,1.05vw,20px);margin:8px 0 clamp(24px,2.4vw,40px);line-height:1.4}
+.skill p{font-family:'DM Sans',sans-serif;font-weight:300;color:#a8a8a8;font-size:clamp(14px,1.05vw,20px);margin:8px 0 clamp(24px,2.4vw,40px);line-height:1.4}
 .chips{display:flex;flex-wrap:wrap;gap:10px}
-.chips li{background:#fff;border-radius:99px;padding:11px 22px;font-size:clamp(14px,1.05vw,20px)}
-.edu{background:var(--card);border-radius:clamp(22px,2vw,36px);padding:clamp(24px,2.4vw,44px);margin-top:clamp(14px,1.1vw,20px);display:flex;justify-content:space-between;gap:2rem;flex-wrap:wrap;align-items:center}
-.edu h3{font-weight:500;font-size:clamp(22px,1.9vw,36px)}
-.edu p{font-family:'DM Sans',sans-serif;color:var(--mut);font-size:clamp(15px,1.15vw,22px);margin-top:6px}
+.chips li{background:#2a2a2a;color:#eee;border-radius:99px;padding:11px 22px;font-size:clamp(14px,1.05vw,20px)}
+.edu{background:#1a1a1a;border-radius:clamp(22px,2vw,36px);padding:clamp(24px,2.4vw,44px);margin-top:clamp(14px,1.1vw,20px);display:flex;justify-content:space-between;gap:2rem;flex-wrap:wrap;align-items:center}
+.edu .label{color:#a8a8a8}.edu h3{font-weight:500;font-size:clamp(22px,1.9vw,36px)}
+.edu p{font-family:'DM Sans',sans-serif;color:#a8a8a8;font-size:clamp(15px,1.15vw,22px);margin-top:6px}
 /* contact */
 .contact{position:relative;padding-top:clamp(20px,2vw,40px)}
 .label{font-family:'IBM Plex Mono',monospace;font-size:clamp(14px,1.04vw,20px)}
@@ -172,18 +178,20 @@ footer .big{font-family:'DM Sans',sans-serif;font-weight:500;font-size:clamp(90p
     </div>
   </section>
 
-  <section id="skills">
+  </div>
+<section id="skills" class="dark">
     <div class="head"><h2>Skills that fuel my work</h2><p>The stack I use to build both sides of a product.</p></div>
     <div class="bento">
-<div class="skill reveal"><h3>Languages</h3><p>JavaScript · Kotlin · Java · Python</p><ul class="chips"><li>JavaScript</li><li>Kotlin</li><li>Java</li><li>Python</li></ul></div>
-<div class="skill reveal"><h3>Frontend</h3><p>Responsive, accessible interfaces.</p><ul class="chips"><li>React.js</li><li>HTML5 / CSS3</li><li>UI Design (XML)</li><li>Responsive Design</li></ul></div>
-<div class="skill reveal"><h3>Backend</h3><p>APIs and services that hold up.</p><ul class="chips"><li>Node.js</li><li>Express.js</li><li>REST APIs</li><li>JWT Auth</li></ul></div>
-<div class="skill reveal"><h3>Databases</h3><p>Secure, efficient data storage.</p><ul class="chips"><li>MongoDB</li><li>Firebase</li><li>SQL (MySQL / PostgreSQL)</li></ul></div>
-<div class="skill reveal"><h3>Mobile</h3><p>Native Android with Kotlin.</p><ul class="chips"><li>Kotlin</li><li>Android Studio</li><li>XML UI</li></ul></div>
-<div class="skill reveal"><h3>DevOps & Tools</h3><p>Build, test and ship automatically.</p><ul class="chips"><li>Git & GitHub</li><li>Docker</li><li>Jenkins / Maven</li><li>GitHub Actions</li></ul></div>
+<div class="skill reveal"><div class="logos"><span title="JavaScript"><img src="logos/javascript.svg" alt="JavaScript" loading="lazy"></span><span title="Kotlin"><img src="logos/kotlin.svg" alt="Kotlin" loading="lazy"></span><span title="Java"><img src="logos/java.svg" alt="Java" loading="lazy"></span><span title="Python"><img src="logos/python.svg" alt="Python" loading="lazy"></span></div><h3>Programming Languages</h3><p>Problem-solving and clean, efficient code across the stack.</p></div>
+<div class="skill reveal"><div class="logos"><span title="HTML5"><img src="logos/html5.svg" alt="HTML5" loading="lazy"></span><span title="CSS3"><img src="logos/css3.svg" alt="CSS3" loading="lazy"></span><span title="React"><img src="logos/react.svg" alt="React" loading="lazy"></span><span title="Tailwind CSS"><img src="logos/tailwindcss.svg" alt="Tailwind CSS" loading="lazy"></span><span title="Vite"><img src="logos/vitejs.svg" alt="Vite" loading="lazy"></span></div><h3>Front-End Development</h3><p>Responsive, accessible interfaces with modern tooling.</p><ul class="chips"><li>Responsive Design</li><li>UI Design (XML)</li></ul></div>
+<div class="skill reveal"><div class="logos"><span title="Node.js"><img src="logos/nodejs.svg" alt="Node.js" loading="lazy"></span><span title="Express"><img src="logos/express.svg" alt="Express" loading="lazy"></span></div><h3>Back-End Development</h3><p>Robust server-side logic and APIs that hold up.</p><ul class="chips"><li>REST APIs</li><li>JWT Auth</li></ul></div>
+<div class="skill reveal"><div class="logos"><span title="MongoDB"><img src="logos/mongodb.svg" alt="MongoDB" loading="lazy"></span><span title="Firebase"><img src="logos/firebase.svg" alt="Firebase" loading="lazy"></span><span title="MySQL"><img src="logos/mysql.svg" alt="MySQL" loading="lazy"></span><span title="PostgreSQL"><img src="logos/postgresql.svg" alt="PostgreSQL" loading="lazy"></span></div><h3>Database Management</h3><p>Secure, efficient data storage and retrieval.</p><ul class="chips"><li>SQL</li></ul></div>
+<div class="skill reveal"><div class="logos"><span title="Kotlin"><img src="logos/kotlin.svg" alt="Kotlin" loading="lazy"></span><span title="Android Studio"><img src="logos/androidstudio.svg" alt="Android Studio" loading="lazy"></span></div><h3>Mobile App Development</h3><p>Native Android apps built with Kotlin.</p><ul class="chips"><li>XML UI</li></ul></div>
+<div class="skill reveal"><div class="logos"><span title="Docker"><img src="logos/docker.svg" alt="Docker" loading="lazy"></span><span title="Jenkins"><img src="logos/jenkins.svg" alt="Jenkins" loading="lazy"></span><span title="GitHub Actions"><img src="logos/githubactions.svg" alt="GitHub Actions" loading="lazy"></span><span title="Maven"><img src="logos/maven.svg" alt="Maven" loading="lazy"></span><span title="Git"><img src="logos/git.svg" alt="Git" loading="lazy"></span><span title="GitHub"><img src="logos/github.svg" alt="GitHub" loading="lazy"></span><span title="Vercel"><img src="logos/vercel.svg" alt="Vercel" loading="lazy"></span></div><h3>Cloud, DevOps & Tools</h3><p>Build, test and ship automatically.</p></div>
     </div>
     <div class="edu reveal"><div><h3>B.Tech, Information Technology</h3><p>Tamilnadu College of Engineering · 2023 — 2027 · CGPA 7.72</p></div><span class="label">Education</span></div>
-  </section>
+</section>
+<div class="wrap">
 
   <section id="works">
     <div class="head"><h2>Impressive Works</h2><p>A selection of projects that showcase what I build — from AI agents to full-stack products and Android apps.</p></div>
@@ -306,6 +314,7 @@ footer .big{font-family:'DM Sans',sans-serif;font-weight:500;font-size:clamp(90p
       <p id="cfStatus" class="full" role="status"></p>
     </form>
   </section>
+</div>
 </main>
 
 <footer>
