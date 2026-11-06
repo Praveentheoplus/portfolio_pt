@@ -85,7 +85,8 @@ a.shot:hover img{transform:scale(1.04)}
 .org{font-family:'DM Sans',sans-serif;color:var(--mut);margin-top:6px;font-size:clamp(14px,1.05vw,20px)}
 .row-d{font-family:'DM Sans',sans-serif;font-weight:300;color:var(--mut);font-size:clamp(15px,1.15vw,22px);line-height:1.45}
 .row-d small{display:block;margin-top:10px;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--soft)}
-.rows .cert{grid-template-columns:1.6fr 1.2fr auto;align-items:center;padding:24px 0}
+.rows .cert{grid-template-columns:minmax(0,1.6fr) minmax(0,1.2fr) 80px;align-items:center;padding:24px 0}
+.rows .cert a{justify-self:end}
 .rows .cert h3{font-size:clamp(18px,1.5vw,28px)}
 .rows .cert .org{margin:0}
 .cert a{border-bottom:1px solid #000;font-size:15px}
@@ -141,7 +142,7 @@ footer .big{font-family:'DM Sans',sans-serif;font-weight:500;font-size:clamp(90p
 @media(max-width:900px){
  .intro{flex-direction:column;align-items:flex-start}.intro aside{align-items:flex-start;text-align:left;flex-basis:auto}
  .grid{grid-template-columns:1fr}.bento{column-count:2}
- .rows .row{grid-template-columns:1fr;gap:8px}.rows .cert{grid-template-columns:1fr}
+ .rows .row{grid-template-columns:1fr;gap:8px}.rows .cert{grid-template-columns:minmax(0,1fr);justify-items:start}.rows .cert a{justify-self:start}
  .head{flex-direction:column}.hero-top p{display:none}.hero-arrow{display:none}
  .blob{position:static;margin-top:32px}.cinfo{max-width:none}.form{grid-template-columns:1fr}
  .dock{gap:6px;padding:8px 12px;bottom:12px}.dk{width:42px;height:42px}.dk svg{width:19px;height:19px}
@@ -286,13 +287,13 @@ footer .big{font-family:'DM Sans',sans-serif;font-weight:500;font-size:clamp(90p
     <div class="rows">
 <div class="row cert reveal"><h3>Oracle Cloud Infrastructure 2025 Certified Foundations Associate</h3><p class="org">Oracle University · 2025</p></div>
 <div class="row cert reveal"><h3>Generative AI in Action</h3><p class="org">IBM SkillsBuild · Sep 2025 · ID PWID-B0916100</p></div>
-<div class="row cert reveal"><h3>Data Analytics Job Simulation</h3><p class="org">Deloitte · Forage · Code KWY7ti6zMtRjhPJwc</p><a href="https://www.theforage.com/simulations/deloitte-au/data-analytics-s5zy/completed" target="_blank" rel="noopener noreferrer">View ↗</a></div>
-<div class="row cert reveal"><h3>GenAI Powered Data Analytics Job Simulation</h3><p class="org">Tata · Forage · Code XdMhgxuiFaN4RG3k8</p></div>
-<div class="row cert reveal"><h3>MongoDB</h3><p class="org">Unstop</p></div>
-<div class="row cert reveal"><h3>MERN Full Stack</h3><p class="org">Unstop</p></div>
 <div class="row cert reveal"><h3>Claude Code in Action</h3><p class="org">Anthropic Education · Sep 2026</p><a href="https://verify.skilljar.com/c/9yqzj8txccxw" target="_blank" rel="noopener noreferrer">View ↗</a></div>
 <div class="row cert reveal"><h3>Gemini Certified Student</h3><p class="org">Google</p><a href="https://edu.google.accredible.com/5818e594-b32a-44e4-8f43-ee4b35e1fc2a" target="_blank" rel="noopener noreferrer">View ↗</a></div>
+<div class="row cert reveal"><h3>Data Analytics Job Simulation</h3><p class="org">Deloitte · Forage · Code KWY7ti6zMtRjhPJwc</p><a href="https://www.theforage.com/simulations/deloitte-au/data-analytics-s5zy/completed" target="_blank" rel="noopener noreferrer">View ↗</a></div>
+<div class="row cert reveal"><h3>GenAI Powered Data Analytics Job Simulation</h3><p class="org">Tata · Forage · Code XdMhgxuiFaN4RG3k8</p></div>
 <div class="row cert reveal"><h3>Advanced Software Engineering Job Simulation</h3><p class="org">Walmart USA · Forage</p></div>
+<div class="row cert reveal"><h3>MongoDB</h3><p class="org">Unstop</p></div>
+<div class="row cert reveal"><h3>MERN Full Stack</h3><p class="org">Unstop</p></div>
     </div>
   </section>
 
